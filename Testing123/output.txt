@@ -1,0 +1,7 @@
+The current date is: 2019-09-10 
+Enter the new date: (yy-mm-dd) The system cannot accept the date entered.
+Enter the new date: (yy-mm-dd) The system cannot accept the date entered.
+Enter the new date: (yy-mm-dd) The system cannot accept the date entered.
+Enter the new date: (yy-mm-dd) The system cannot accept the date entered.
+Enter the new date: (yy-mm-dd) The system cannot accept the date entered.
+Enter the new date: (yy-mm-dd) 

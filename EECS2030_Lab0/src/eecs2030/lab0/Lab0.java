@@ -62,6 +62,7 @@ public class Lab0 {
 			return newnum;
 		}
 		// return 0;
+		//200iq way is just to do return n/100; thats it
 	}
 
 	/**
@@ -349,8 +350,11 @@ public class Lab0 {
 	}
 
 	/*
-	 * public static void main(String[] args) {
-	 * System.out.println(alternatingCaps("asdf")); }
-	 */
-
+	public static void main(String[] args) {
+		System.out.println(alternatingCaps("asdf"));
+		System.out.println(lastTwoDigits(12323));
+		System.out.println(removeLastTwoDigits(123553));
+		System.out.println(1/100);
+	}
+*/
 }
