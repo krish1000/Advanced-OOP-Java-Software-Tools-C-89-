@@ -34,7 +34,74 @@ package eecs2030.lab1;
  */
 public class HounsfieldWindow {
 
-	
-	
-	
+	// private double lo;
+	// private double hi;
+	private int level;
+	private int width;
+
+	// intializes window if the user doesn't give params
+	public HounsfieldWindow() {
+		this.level = 0;
+		this.width = 400;
+	}
+
+	// intialzes level and width of the window
+	public HounsfieldWindow(int level, int width) {
+		// cant call checkvalue cuz private i think
+		if (level < Hounsfield.MIN_VALUE || level > Hounsfield.MAX_VALUE) {
+			throw new IllegalArgumentException();
+		} else if (width < 1) {
+			throw new IllegalArgumentException();
+		}
+		this.level = level;
+		this.width = width;
+
+	}
+
+	// returns level value
+	public int getLevel() {
+		return this.level;
+	}
+
+	// returns width value
+	public int getWidth() {
+		return this.width;
+	}
+
+	// sets level and checks if its less than min or greater than max
+	public int setLevel(int level) {
+
+		if (level < Hounsfield.MIN_VALUE || level > Hounsfield.MAX_VALUE) {
+			throw new IllegalArgumentException();
+		}
+		int temp = this.level;
+		this.level = level;
+		return temp;
+	}
+
+	// sets width and checks if its under 1
+	public int setWidth(int width) {
+		if (width < 1) {
+			throw new IllegalArgumentException();
+		}
+		int temp = this.width;
+		this.width = width;
+		return temp;
+	}
+
+	// does the formula stuff ting
+	public double map(Hounsfield h) {
+		double lo = getLevel() - (getWidth() / 2.0);
+		double hi = getLevel() + (getWidth() / 2.0);
+
+		if (h.get() < lo) {
+			return 0;
+		} else if (h.get() > hi) {
+			return 1;
+		} else {
+			return (h.get() - lo) / width;
+		}
+
+	}
+
 }

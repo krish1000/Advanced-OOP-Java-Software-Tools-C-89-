@@ -167,6 +167,30 @@ public class HounsfieldTest {
 			assertEquals(error, exp, got);
 		}
 	}
+	
+	@Test
+	public void test08_setReturns() {
+		assumeTrue("test requires a correct value of MIN_VALUE", IS_MIN_VALUE_OK);
+		assumeTrue("test requires a correct value of MAX_VALUE", IS_MAX_VALUE_OK);
+		assumeTrue("test requires a correct implementation of Hounsfield()", IS_NO_ARG_CTOR_OK);
+		
+		// make a Hounsfield unit to call set on
+		Hounsfield v = new Hounsfield();
+		int expOldValue = 0;  // the current expected value of v
+
+		for (int i = Hounsfield.MIN_VALUE; i <= Hounsfield.MAX_VALUE; i++) {
+			// invoke set
+			int gotOldValue = v.set(i);
+
+			// make an error message in case the test fails
+			String error = String.format("set(%s) failed to return the correct value", i);
+
+			// assert that expOldValue is equal to gotOldValue
+			assertEquals(error, expOldValue, gotOldValue);
+			
+			expOldValue = i;
+		}
+	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void test09_setThrows() {
