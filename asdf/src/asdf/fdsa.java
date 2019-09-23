@@ -34,22 +34,35 @@ public class fdsa {
 	}
 	
 	public static void main(String[] args) {
-		String x = "asdf";
-		System.out.println(x);
-		System.out.println(reverse(x));
-		System.out.println("-----------------");
+//		String x = "asdf";
+//		System.out.println(x);
+//		System.out.println(reverse(x));
+//		System.out.println("-----------------");
+//		
+//		int a = 0;
+//		System.out.println(factorialting(a));
+//		a = 1;
+//		System.out.println(factorialting(a));
+//		a = 2;
+//		System.out.println(factorialting(a));
+//		a = 3;
+//		System.out.println(factorialting(a));
+//		a = 4;
+//		System.out.println(factorialting(a));
+//		a = 5;
+//		System.out.println(factorialting(a));
+		int count =0;
+		String[] x = {"Hola", "abc", "oppa"};
+		for(int i = 0; i<x.length; i++) {
+			count++;
+		}
 		
-		int a = 0;
-		System.out.println(factorialting(a));
-		a = 1;
-		System.out.println(factorialting(a));
-		a = 2;
-		System.out.println(factorialting(a));
-		a = 3;
-		System.out.println(factorialting(a));
-		a = 4;
-		System.out.println(factorialting(a));
-		a = 5;
-		System.out.println(factorialting(a));
+		int[] y = new int[2];
+		System.out.println(count);
+		System.out.println(x[0].charAt(0));
+		System.out.println("x length: "+ x.length);
+		System.out.println("y length: " + y.length);
+		System.out.println(x[x.length -1] != null);
 	}
+		
 }

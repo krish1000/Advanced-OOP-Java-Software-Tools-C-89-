@@ -105,7 +105,6 @@ public class Hounsfield {
 		if (value < MIN_VALUE || value > MAX_VALUE) { // changed
 			throw new IllegalArgumentException();
 		}
-
 	}
 
 	/**
@@ -138,7 +137,6 @@ public class Hounsfield {
 		checkValue(value);
 		int temp = this.value;
 		this.value = value;
-		// original idk
 		return temp;
 	}
 
