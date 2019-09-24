@@ -98,7 +98,7 @@ public class Domino implements Comparable<Domino> {
 //}
 
 	@Override
-	public boolean equals(Object obj) {
+	public boolean equals(Object obj) 	{
 		if (obj == null || obj.getClass() != Domino.class) {
 			return false;
 		} else if ((this.val1 == ((Domino) obj).val1 && this.val2 == ((Domino) obj).val2)
