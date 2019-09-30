@@ -1,0 +1,81 @@
+public class Triangle {
+	
+	double s1, s2, s3;	
+	//remember the throws part
+	public Triangle(double s1, double s2, double s3) throws InvalidSidesException {
+		if(((s1 + s2) > s3) || ((s1 + s3) > s2) || ((s3 + s2) > s1)){
+			this.s1 = s1;
+			this.s2 = s2;
+			this.s3 = s3;
+		}
+		throw new InvalidSidesException("Invalid");	
+	}
+}
+
+/**************************************************************/
+
+CORRECT:
+class TriangleCollector {
+	Triangle[] triangles;
+	int numberOfTriangles;
+
+	TriangleCollector() {
+		triangles = new Triangle[10];
+	}
+
+	void addTriangle(double side1, double side2, double side3)
+	throws InvalidSidesException {
+		Triangle t = new Triangle(side1, side2, side3);
+		triangles[numberOfTriangles] = t;
+		numberOfTriangles ++;
+	}
+}
+
+/********************************************************/
+
+class TriangleCollectorTester {
+public static void main(String[] args) {
+Scanner input = new Scanner(System.in);
+/* Your answer starts from here... */
+
+TriangleCollector tc = new TriangleCollector();
+boolean exit1 = false;
+
+while( exit1 == false) {
+	sysout("Enter the first side: ");
+	double s1 = input.nextDouble;
+	sysout("Enter the 2nd side: ");
+	double s2 = input.nextDouble;
+	sysout("Enter the 3rd side: ");
+	double s3 = input.nextDouble;
+	try{
+		tc.addTriangle(s1,s2,s3);
+		sysout("A triangle with sides " + s1 + " " + s2 + " " + s3 + " is added.");
+	} catch (InvalidSidesException e) {
+		exit1 = true;
+		sysout("Invalid sides: " + s1 + " " + s2 + " " + s3);
+		sysout("Bye!");
+	}
+
+}
+
+
+}
+}
+
+/*******************************************************/
+WRONG:
+void addTriangle(double side1, double side2, double side3){
+	Triangle[] collection;
+	int num = 0;
+	try{
+		Triangle(side1, side2, side3);
+		if(collection.length < 11){
+			Triangle[num] = Triangle(side1, side2, side3); 
+			num++;
+		}
+		
+	}catch(InvalidSidesException e) {
+		System.out.println("Invalid");
+	}
+}

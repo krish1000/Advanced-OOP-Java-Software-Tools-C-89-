@@ -1,0 +1,88 @@
+Breakpoint 1, main () at main.c:11                                                                            
+11        swap(mainA, mainB);                                                                                 
+(gdb) display mainA                                                                                           
+1: mainA = 1                                                                                                  
+(gdb) display mainB                                                                                           
+2: mainB = 20000                                                                                              
+(gdb) continue                                                                                                
+Continuing.                                                                                                   
+
+/**********************
+*Q. What do you get for mainA and mainB?
+* mainA = 1; mainB = 20000;
+*
+*
+***********************/
+                                                                                                              
+Breakpoint 2, swap (x=1, y=20000) at main.c:                                                                  
+18         int temp = x;                                                                                      
+(gdb) display x                                                                                               
+3: x = 1                                                                                                      
+(gdb) display y                                                                                               
+4: y = 20000                                                                                                  
+(gdb) display mainA                                                                                           
+No symbol "mainA" in current context.                                                                         
+(gdb) display mainB                                                                                           
+No symbol "mainB" in current context.                                                                         
+(gdb) continue                                                                                                
+Continuing.                                                                                                   
+                
+/**********************
+*Q. What do you get for x and y?
+* x = 1; y = 20000;
+*
+*
+*Q. What do you get for mainA and mainB, and why?
+* mainA and mainB has no symbols in the current context.
+* Since C is a Pass-by-value language, mainA and mainB
+* are not located in the function void swap, they remain in int main()
+* The values of mainA and mainB are copied to x and y,
+* they don't necessarily take the address of mainA and mainB.
+* So x takes the value 1, and y takes the value 20000.
+* Whereas mainA and mainB are not located in the function void swap (after line 18) 
+***********************/
+                                                                                              
+Breakpoint 3, swap (x=20000, y=1) at main.c:                                                 
+21      }                                                                                                     
+4: y = 1                                                                                                      
+3: x = 20000                                                                                                  
+(gdb) display x                                                                                               
+5: x = 20000                                                                                                  
+(gdb) display y                                                                                               
+6: y = 1                                                                                                      
+(gdb) continue                                                                                                
+Continuing.                                                                                                   
+         
+/**********************
+*Q. What do you get for x and y? Are they swapped?
+* x = 20000; y = 1;
+* 
+* Yes the values for x and y have been swapped.
+***********************/
+   
+Breakpoint 4, main () at main.c:12                                                                            
+12        return 0;                                                                                           
+2: mainB = 20000                                                                                              
+1: mainA = 1                                                                                                  
+(gdb) display mainA                                                                                           
+7: mainA = 1                                                                                                  
+(gdb) display mainB                                                                                           
+8: mainB = 20000                                                                                              
+(gdb) display x                                                                                               
+No symbol "x" in current context.                                                                             
+(gdb) display y                                                                                               
+No symbol "y" in current context.                                                                             
+(gdb) quit  
+
+/**********************
+*Q. What do you get for mainA and mainB? Are they swapped?
+* mainA = 1; mainB = 20000;
+*
+* The values have not been swapped because C language is pass-by-value
+*
+*Q. What do you get for display x, and display y, and why?
+* Both display x and display y are not in the current context.
+* Similiar to the 2nd question, x and y are not found in int main()
+* Only mainA and mainB are found in int main() 
+* At this moment x and y are deallocated from memory.
+***********************/                                                                                                                                                 
