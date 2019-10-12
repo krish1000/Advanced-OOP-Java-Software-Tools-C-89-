@@ -1,5 +1,5 @@
 /***************************************
-* EECS2031B – Lab4 *
+* EECS2031B â€“ Lab4 *
 * Author: Manoharan, Krishaanth *
 * Email: krish100@my.yorku.ca *
 * eecs_username: krish100 *

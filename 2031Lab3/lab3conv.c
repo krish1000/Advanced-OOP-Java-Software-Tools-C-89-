@@ -81,6 +81,7 @@ float calIntInt(int op1, char operator, int op2)
 
 float calFloatFloat(float op1, char operator, float op2)
 {
+
 	if(operator == '+'){
 		return (op1 + op2);
 	} else if(operator == '-'){

@@ -10,7 +10,8 @@
  * a.k.a all char arrays are INTEGERS!
  */
 #include <stdio.h>
-
+#include <stdlib.h>
+//JUST USE STDLIB
 #define SIZE 10
 
 /**declaring methods */

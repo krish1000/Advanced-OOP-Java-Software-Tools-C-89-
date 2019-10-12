@@ -12,7 +12,7 @@
 #define SIZE 12
 int isQuit(char str[]); //substring charat etc
 
-main (){
+int main (){
    char str[SIZE];
    int i;
    for(i=0; i<SIZE; i++)

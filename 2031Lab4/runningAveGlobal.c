@@ -6,22 +6,21 @@
 * York Student #: 216463150
 ****************************************/
 #include <stdio.h>
-void r_avg(void);
+extern void r_avg(void);
+extern int sum;
 
 int main(int argc, char *argv[])
 {
     int input;
-
     printf("Enter number (-1 to quit): ");
     scanf("%d", &input);
 
     while(input != -1){
-    	int sum;
       sum += input;
       r_avg();
 
       // read again
-      printf("Enter number (-1 to quit): ");
+      printf("\nEnter number (-1 to quit): ");
       scanf("%d", &input);
 
      }
