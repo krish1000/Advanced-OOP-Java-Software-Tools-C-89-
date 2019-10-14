@@ -9,8 +9,8 @@ import java.util.Scanner;
 public class Magic {
 
 	// need 21 cards, 7x3
-	static ArrayList<String> col1 = new ArrayList<>(Arrays.asList("♠1", "♥6", "♣5", "♥10", "♠9", "♦8", "♣2"));
-	static ArrayList<String> col2 = new ArrayList<>(Arrays.asList("♠2", "♥7", "♣6", "♥J", "♠10", "♦9", "♣3"));
+	static ArrayList<String> col1 = new ArrayList<>(Arrays.asList("♠K", "♥6", "♣5", "♥Q", "♠9", "♦8", "♣2"));
+	static ArrayList<String> col2 = new ArrayList<>(Arrays.asList("♠2", "♥7", "♣6", "♥J", "♠4", "♦9", "♣3"));
 	static ArrayList<String> col3 = new ArrayList<>(Arrays.asList("♠5", "♥10", "♣9", "♥A", "♠Q", "♦J", "♣K"));
 
 //	static String[][] all1 = { { "♠1", "♥6", "♣5", "♥10", "♠9", "♦8", "♣2" },
@@ -30,7 +30,7 @@ public class Magic {
 	public static void main(String[] args) {
 		// testing unicode
 		System.out.println("Testing Unicode for Card Suits: ");
-		System.out.print("\u2660, ");// ♠
+		System.out.print("\u2660, ");// ♠	
 		System.out.print("\u2666, ");// ♦
 		System.out.print("\u2663, ");// ♣
 		System.out.print("\u2665 \n");// ♥
@@ -102,7 +102,7 @@ public class Magic {
 			System.out.println("Would you like to play again? (Y/N)");
 			String exit = input.nextLine();
 
-			if (exit.equals("N")) {
+			if (!exit.equals("Y")) {
 				stay = false;
 				System.out.println("Bye!");
 			}
