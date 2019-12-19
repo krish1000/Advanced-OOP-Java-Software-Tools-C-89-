@@ -9,18 +9,19 @@ public class WrapperClassTester {
 		int j = 3;
 		Object o = i * j; /* i * j is wrapped as an Integer object */
 		/* Static type of o is Object; Dynamic type of o is Integer */
-		Integer k = (Integer) o; 
+		Integer k = (Integer) o;
 		System.out.println(k);
-		
+
 		boolean p = true;
 		boolean q = false;
 		o = p || q; /* p || q is wrapped as a Boolean object */
 		/* Static type of o remains Object; Dynamic type of o changes to Boolean */
-		Boolean r = (Boolean) o; 
+		Boolean r = (Boolean) o;
 		System.out.println(r);
-		
-		/* Lesson: 
-		 * Object is a suitable static type 
-		 * which allows dynamic types Integer and Boolean */
+
+		/*
+		 * Lesson: Object is a suitable static type which allows dynamic types Integer
+		 * and Boolean
+		 */
 	}
 }

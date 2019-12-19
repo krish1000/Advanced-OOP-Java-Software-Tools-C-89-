@@ -24,16 +24,128 @@
  */
 
 public class TwoArrayDictionary implements Dictionary {
-	
+
 	/*
 	 * Use these attributes only to implement the methods.
 	 */
 	int MAX_CAPACITY = 100;
 	int count = 0; // number of entries in dictionary
-	
+
 	String[] words;
 	String[] definitions;
-	
+
+	// added constructor
+	public TwoArrayDictionary() {
+		// TODO Auto-generated constructor stub
+		words = new String[MAX_CAPACITY];
+		definitions = new String[MAX_CAPACITY];
+	}
+
+	@Override
+	public int size() {
+		// TODO Auto-generated method stub
+		return this.count;
+	}
+
+	@Override
+	public boolean isEmpty() {
+		// TODO Auto-generated method stub
+		if (this.count == 0)
+			return true;
+		return false;
+	}
+
+	@Override
+	public String getDefinition(String word) throws WordNotInDictionaryException {
+		// TODO Auto-generated method stub
+
+		for (int i = 0; i < count; i++) {
+			if (words[i] == word) {
+				return definitions[i];
+			}
+		}
+
+		throw new WordNotInDictionaryException();
+	}
+
+	@Override
+	public void insertEntry(String word, String definition)
+			throws WordAlreadyExistsInDictionaryException, DictionaryFullException {
+		// TODO Auto-generated method stub
+		if (count == 99) {
+			throw new DictionaryFullException(word);
+		}
+		for (int i = 0; i < count; i++) {
+			if (words[i] == word) {
+				throw new WordAlreadyExistsInDictionaryException();
+			}
+		}
+		words[count] = word;
+		definitions[count++] = definition;
+
+	}
+
+	@Override
+	public String removeWord(String word) throws WordNotInDictionaryException {
+		// TODO Auto-generated method stub
+
+		String def = "poop";
+		boolean exists = false;
+		for (int i = 0; i < this.count; i++) {
+			if (words[i] == word) {
+				def = definitions[i];
+				exists = true;
+				this.count--;
+			}
+			if (exists) {
+				words[i] = words[i + 1];
+				definitions[i] = definitions[i + 1];
+			}
+		}
+		if (!exists) {
+			throw new WordNotInDictionaryException();
+		} else {
+			words[count] = null;
+			definitions[count] = null;
+		}
+
+		return def;
+	}
+
+	@Override
+	public String[] getWords() {
+		// TODO Auto-generated method stub
+		String[] temp = new String[count];
+
+		for (int i = 0; i < count; i++) {
+			temp[i] = words[i];
+		}
+		return temp;
+	}
+
+	@Override
+	public String[] getDefinitions() {
+		// TODO Auto-generated method stub
+		String[] temp = new String[count];
+
+		for (int i = 0; i < count; i++) {
+			temp[i] = definitions[i];
+		}
+		return temp;
+	}
+
+	@Override
+	public WordDefinitionPair[] getEntries() {
+		// TODO Auto-generated method stub
+		WordDefinitionPair[] tempPairs = new WordDefinitionPair[count];
+
+		for (int i = 0; i < count; i++) {
+			tempPairs[i] = new WordDefinitionPair(words[i], definitions[i]);
+		}
+
+		return tempPairs;
+	}
+
 	/*
 	 * Your tasks: declare and implement methods from the Dictionary interface.
 	 */

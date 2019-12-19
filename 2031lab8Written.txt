@@ -1,0 +1,328 @@
+0.
+sh
+cd
+mkdir 2031Lab8
+
+//created a working directory for this lab
+----------------------------------------------------
+1.
+cd 2031Lab8
+cp /eecs/dept/course/2019-20/F/2031B/xxx .
+
+//copied xxx file to current working directory
+----------------------------------------------------
+2.
+ls
+
+//Output: xxx
+//Verified the file has been copied
+----------------------------------------------------
+3. 
+cp /eecs/dept/course/2019-20/F/2031B/xFile* .
+
+//Copied the 2 files (xFile2, xFile3) using filename substitution wildcards.
+----------------------------------------------------
+4. 
+ls xFile*
+
+//verified that xFile2 and xFile3 has been successfully copied to current directory
+
+ls 
+
+//verified that all 3 files are in current directory
+----------------------------------------------------
+5.	
+mv xxx xFile1
+
+//used move to rename xxx to xFile1 (in same directory)
+----------------------------------------------------
+6. 
+echo $?
+
+//Output: 0
+//verified renaming has been successful.
+
+ls
+//verified renaming has been sucessful.
+
+----------------------------------------------------
+7.
+cd 2031Lab8/
+mkdir 2019
+mkdir 2019/lab8a
+
+//created subdirectory 2019 under current directory, 
+//then created subdirectory lab8a under 2019.
+
+----------------------------------------------------
+8.
+ls -R 2019
+
+//verified that the two directories are created successfully
+----------------------------------------------------
+9.
+rmdir 2019/lab8a/
+rmdir 2019/
+
+//removed dir lab8a and then dir 2019
+----------------------------------------------------
+10.
+ls 2019
+
+//verified dir 2019 is removed
+----------------------------------------------------
+11. 
+mkdir -p 2019/lab8a
+
+//created both dir 2019 and subdir lab8a
+----------------------------------------------------
+12.
+echo $? 
+
+//verified being successful(0)
+
+ls -R 2019
+
+//confirmed recursively
+----------------------------------------------------
+13.
+mv xFile1 2019/lab8a/
+
+//moved xFile1 into subdirectory lab8a
+----------------------------------------------------
+14.
+mv xFile* 2019/lab8a/
+
+//moved the other 2 files into subdirectory lab8a
+//used filename substitution wildcards
+----------------------------------------------------
+15.
+ls -l -R 2019
+
+//confirmed recursively listed
+----------------------------------------------------
+16. 
+cd 2019
+
+//Navigated to subdirectory 2019
+
+pwd
+//Confirmed, inside of 2019
+----------------------------------------------------
+17.
+(1) ls -l lab8a
+//lists the files in subdirectory lab8a
+
+(2) ls -l 2019
+//lists the information of subdirectory
+----------------------------------------------------
+18. cp -r lab8a lab8b ******************************
+
+
+----------------------------------------------------
+19. ls -l *
+verified all files are available
+
+----------------------------------------------------
+20.rmdir lab8a/
+Terminal printed:
+rmdir: failed to remove 'lab8a/': Directory not empty
+
+//rmdir did not remove lab8a
+
+----------------------------------------------------
+21. echo $? 
+Terminal printed:
+1
+//means error 
+----------------------------------------------------
+22. rm -r lab8a******************************
+//Recursively remove everything in lab8a and directory lab8a
+----------------------------------------------------
+23.echo $? 
+//verified 0, means no error
+ls lab8a
+//verfied no such direcotry exists
+ 
+----------------------------------------------------
+24. mv lab8b/xFile1 xFile1   ********************************
+//moved to parent direcotry
+----------------------------------------------------
+25. find . -name "xFile?"    *************given
+//listed out all the xFile_'s in the directory and
+//in the subdirectories of 2019
+
+----------------------------------------------------
+26. mv lab8b/ lab8working
+//renamed lab8b to lab8working
+----------------------------------------------------
+27. cd lab8working/
+    pwd
+//navigated to lab8working
+//showed path of lab8working (print working directory)
+
+----------------------------------------------------
+28. mv ../xFile1 xFile1
+//moved xFile1 from parent dir to current dir
+
+----------------------------------------------------
+29. ls -l 
+//lists everything in lab8working
+//with detailed info
+----------------------------------------------------
+30.// cat reads stdin and prints to stdout until EOF
+
+----------------------------------------------------
+31. sh$ cat > temp
+Hi
+There
+sh-4.2$ ls
+temp  xFile1  xFile2  xFile3
+sh-4.2$ cat temp
+Hi
+There
+
+
+----------------------------------------------------
+32. rm temp
+//removed temp
+----------------------------------------------------
+33. cat xFile1
+//stdout of temp
+----------------------------------------------------
+34. more xFile? ****************************
+//prints out all 3 files 
+//use spacebar to proceed*****
+//use enter to print each line
+----------------------------------------------------
+35. wc -l xFile1
+stdout: 5
+wc -l xFile2
+stdout: 5
+//printed # of lines
+----------------------------------------------------
+36. head -2 xFile1
+
+----------------------------------------------------
+37. tail -3 xFile2
+//displays last 3 lines of file
+----------------------------------------------------
+38. cmp xFile1 xFile2
+echo $? = 0
+
+----------------------------------------------------
+39. diff xFile1 xFile2
+echo $? = 0
+----------------------------------------------------
+40. 
+
+----------------------------------------------------
+44. sort xFile123 | uniq *******
+
+----------------------------------------------------
+IMPORTANT REMEMEBR THAT > goes into e.g:
+sort xFile123 | uniq > xFile123compact
+that sort shiz goes into xFile123compact
+
+----------------------------------------------------
+52. chmod g+w,-r 
+
+----------------------------------------------------
+55. //modifying by adding a new line at end
+echo "this is a xxx new file" >> xFile OR
+OR
+cat >> xFile1
+This is a xx new file
+^D 
+
+
+----------------------------------------------------
+58. -lSr ALWAYS PUT UPPERCASE S for size
+and -r causes it to reverse (so smallest size is above and biggest size bottom) 
+
+
+----------------------------------------------------
+62. who | sort -k 3
+sort based on 3rd column 
+
+
+----------------------------------------------------
+65. sort -n -k3 xFile1 //using numbers 
+
+
+----------------------------------------------------
+72. grep, -v to reverse 
+
+
+----------------------------------------------------
+cp and rm require -r for directories
+but mv doesn't,
+-r is for recursive
+
+
+----------------------------------------------------
+struct node {
+	char data;
+	struct node *next;
+}
+
+struct node* insertFirst(struct node* head, char d){
+	struct node * newNode = malloc(sizeof(struct node));
+	newNode->next = head;
+	newNode->data = d;
+	head = newNode;
+	
+	return newNode;
+} 
+
+
+----------------------------------------------------
+ Q7 Short ans
+cp /home/will/work/foo /usr/bin WRONG
+cp ../work/foo ../../../usr/bin
+
+2.11 
+	a) echo "class 2031 has `wc -l classlist` students"
+
+	b) echo "class 2031 has `grep -w W[ao]ng classlist | wc -l` students with name Wang or Wong 
+
+what does find ../ -mtime -3
+finds all the files/directories in the parent directory that has been modified within 3 days
+
+find all lines of foo 
+a) ends with a character that is not a nor b nor c, followed by nd
+
+grep [^abc]nd foo | wc -l // WRONG
+correct ansL grep [^a-c]nd$ foo    //have to put $ cuz ENDS
+
+
+9.14 
+my ans)
+This is line 16
+This is line 17
+This is line 18
+
+9.11
+a) ls -lt
+b) ls -lS
+
+9.16
+Today ^ ^ ^ is ^ ^ ^ Friday before a long weekend
+----------------------------------------------------
+ 
+
+
+----------------------------------------------------
+ 
+
+
+----------------------------------------------------
+ 
+
+
+----------------------------------------------------
+ 
+
+
+----------------------------------------------------
+

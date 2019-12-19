@@ -5,7 +5,7 @@ public class LessThan extends Expression {
 		super(left, right);
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	void evaluate() {
 		super.value = (super.left < super.right);
 	}

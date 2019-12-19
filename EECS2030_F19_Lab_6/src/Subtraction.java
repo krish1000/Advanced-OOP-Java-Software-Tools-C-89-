@@ -3,7 +3,7 @@ public class Subtraction extends Expression {
 
 	public Subtraction(int i, int j) {
 		// TODO Auto-generated constructor stub
-		super(i,j);
+		super(i, j);
 	}
 
 	void evaluate() {

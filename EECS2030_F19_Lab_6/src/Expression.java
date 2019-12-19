@@ -38,7 +38,7 @@ public class Expression {
 		/* Your Task */
 		// return null
 
-		if(value instanceof Integer) {
+		if (value instanceof Integer) {
 			return (Integer) value;
 		} else if (value instanceof Boolean) {
 			return (Boolean) value;

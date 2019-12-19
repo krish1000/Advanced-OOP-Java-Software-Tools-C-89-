@@ -6,12 +6,12 @@ public class ConjoinAll extends ExpressionCollector {
 	}
 
 	boolean isTypeCorrect() {
-		for(int i = 0; i < super.getExpressions().length; i++) {
+		for (int i = 0; i < super.getExpressions().length; i++) {
 			super.getExpressions()[i].evaluate();
-			if(!((super.getExpressions()[i].getValue()) instanceof Boolean)) {
-				//System.out.println(super.earr[i].getValue());
+			if (!((super.getExpressions()[i].getValue()) instanceof Boolean)) {
+				// System.out.println(super.earr[i].getValue());
 				return false;
-			} 
+			}
 		}
 		return true;
 	}
@@ -26,11 +26,12 @@ public class ConjoinAll extends ExpressionCollector {
 		} else {
 
 			Boolean total = true;
-			for (int i = 0; i < super.getExpressions().length-1; i++) {
+			for (int i = 0; i < super.getExpressions().length - 1; i++) {
 				super.getExpressions()[i].evaluate();
-				super.getExpressions()[i+1].evaluate();
+				super.getExpressions()[i + 1].evaluate();
 				// System.out.println(super.earr[i].getValue());
-				total = (Boolean) (super.getExpressions()[i].getValue()) && total && (Boolean) (super.getExpressions()[i+1].getValue());
+				total = (Boolean) (super.getExpressions()[i].getValue()) && total
+						&& (Boolean) (super.getExpressions()[i + 1].getValue());
 			}
 			super.value1 = total;
 		}

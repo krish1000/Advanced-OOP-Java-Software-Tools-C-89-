@@ -5,18 +5,18 @@ import org.junit.Test;
 public class TestExpressions {
 
 	/*
-	 * Section 1
-	 * Tests for testing basic integer expressions: 
-	 * Addition, Subtraction, and Multiplication.
+	 * Section 1 Tests for testing basic integer expressions: Addition, Subtraction,
+	 * and Multiplication.
 	 */
 	@Test
 	public void test01() {
 		// Build the expression: 3 + 2
 		// Here the static type of `add` is Expression,
-		// and the dynamic type is Addition (which should be a child class of Expression).
+		// and the dynamic type is Addition (which should be a child class of
+		// Expression).
 		Expression add = new Addition(3, 2);
 		// Evaluate the expression.
-		add.evaluate(); 
+		add.evaluate();
 		// Get the evaluation result as an integer.
 		Object o = add.getValue();
 		Integer addVal = (Integer) o;
@@ -27,7 +27,8 @@ public class TestExpressions {
 	public void test02() {
 		// Build the expression: 3 - 2
 		// Here the static type of `sub` is Expression,
-		// and the dynamic type is Subtraction (which should be a child class of Expression).
+		// and the dynamic type is Subtraction (which should be a child class of
+		// Expression).
 		Expression sub = new Subtraction(3, 2);
 		// Evaluate the expression.
 		sub.evaluate();
@@ -40,7 +41,8 @@ public class TestExpressions {
 	public void test03() {
 		// Build the expression: 3 * 2
 		// Here the static type of `mul` is Expression,
-		// and the dynamic type is Multiplication (which should be a child class of Expression).
+		// and the dynamic type is Multiplication (which should be a child class of
+		// Expression).
 		Expression mul = new Multiplication(3, 2);
 		// Evaluate the expression.
 		mul.evaluate();
@@ -50,9 +52,8 @@ public class TestExpressions {
 	}
 
 	/*
-	 * Section 2
-	 * Tests for testing basic boolean (relational) expressions: 
-	 * Equal, GreaterThan, and LessThan.
+	 * Section 2 Tests for testing basic boolean (relational) expressions: Equal,
+	 * GreaterThan, and LessThan.
 	 */
 
 	@Test
@@ -80,11 +81,12 @@ public class TestExpressions {
 	public void test05() {
 		// Build the expression: 3 > 3
 		// Here the static type of `gt` is Expression,
-		// and the dynamic type is GreaterThan (which should be a child class of Expression).
+		// and the dynamic type is GreaterThan (which should be a child class of
+		// Expression).
 		Expression gt = new GreaterThan(3, 3);
 		// Evaluate the expression.
 		gt.evaluate();
-		Boolean gtVal = (Boolean) gt.getValue();		
+		Boolean gtVal = (Boolean) gt.getValue();
 		assertFalse(new Boolean(true).equals(gtVal));
 
 		// Rebuild the expression: 3 > 8
@@ -94,7 +96,7 @@ public class TestExpressions {
 		// Evaluate the expression.
 		gt.evaluate();
 		// Get the evaluation result as a boolean.
-		gtVal = (Boolean) gt.getValue();		
+		gtVal = (Boolean) gt.getValue();
 		assertFalse(new Boolean(true).equals(gtVal));
 
 		// Rebuild the expression: 8 > 3
@@ -104,7 +106,7 @@ public class TestExpressions {
 		// Evaluate the expression.
 		gt.evaluate();
 		// Get the evaluation result as a boolean.
-		gtVal = (Boolean) gt.getValue();		
+		gtVal = (Boolean) gt.getValue();
 		assertTrue(new Boolean(true).equals(gtVal));
 	}
 
@@ -112,11 +114,12 @@ public class TestExpressions {
 	public void test06() {
 		// Build the expression: 3 < 3
 		// Here the static type of `lt` is Expression,
-		// and the dynamic type is LessThan (which should be a child class of Expression).
+		// and the dynamic type is LessThan (which should be a child class of
+		// Expression).
 		Expression lt = new LessThan(3, 3);
 		// Evaluate the expression.
 		lt.evaluate();
-		Boolean gtVal = (Boolean) lt.getValue();		
+		Boolean gtVal = (Boolean) lt.getValue();
 		assertFalse(new Boolean(true).equals(gtVal));
 
 		// Rebuild the expression: 3 < 8
@@ -126,7 +129,7 @@ public class TestExpressions {
 		// Evaluate the expression.
 		lt.evaluate();
 		// Get the evaluation result as a boolean.
-		gtVal = (Boolean) lt.getValue();		
+		gtVal = (Boolean) lt.getValue();
 		assertTrue(new Boolean(true).equals(gtVal));
 
 		// Rebuild the expression: 8 > 3
@@ -136,21 +139,22 @@ public class TestExpressions {
 		// Evaluate the expression.
 		lt.evaluate();
 		// Get the evaluation result as a boolean.
-		gtVal = (Boolean) lt.getValue();		
+		gtVal = (Boolean) lt.getValue();
 		assertFalse(new Boolean(true).equals(gtVal));
 	}
 
 	/*
-	 * Section 3.1
-	 * Tests for testing empty complex integer expressions: 
-	 * AddAll and TimesAll.
+	 * Section 3.1 Tests for testing empty complex integer expressions: AddAll and
+	 * TimesAll.
 	 */
 
 	@Test
 	public void test07() {
-		// Build the expression which adds up an empty collection of integer expressions.
+		// Build the expression which adds up an empty collection of integer
+		// expressions.
 		// Here the static type of `ec1` is ExpressionCollector,
-		// and the dynamic type is AddAll (which should be a child class of ExpressionCollector).
+		// and the dynamic type is AddAll (which should be a child class of
+		// ExpressionCollector).
 		ExpressionCollector ec1 = new AddAll();
 		assertEquals(0, ec1.getExpressions().length);
 
@@ -169,9 +173,11 @@ public class TestExpressions {
 
 	@Test
 	public void test08() {
-		// Build the expression which adds up an empty collection of integer expressions.
+		// Build the expression which adds up an empty collection of integer
+		// expressions.
 		// Here the static type of `ec2` is ExpressionCollector,
-		// and the dynamic type is TimesAll (which should be a child class of ExpressionCollector).
+		// and the dynamic type is TimesAll (which should be a child class of
+		// ExpressionCollector).
 		ExpressionCollector ec2 = new TimesAll();
 		assertEquals(0, ec2.getExpressions().length);
 
@@ -189,16 +195,17 @@ public class TestExpressions {
 	}
 
 	/*
-	 * Section 3.2
-	 * Tests for testing empty complex boolean expressions: 
-	 * CojoinAll and DisjoinAll.
+	 * Section 3.2 Tests for testing empty complex boolean expressions: CojoinAll
+	 * and DisjoinAll.
 	 */
 
 	@Test
 	public void test09() {
-		// Build the expression which takes the conjunction of an empty collection of boolean expressions.
+		// Build the expression which takes the conjunction of an empty collection of
+		// boolean expressions.
 		// Here the static type of `ec3` is ExpressionCollector,
-		// and the dynamic type is ConjoinAll (which should be a child class of ExpressionCollector).
+		// and the dynamic type is ConjoinAll (which should be a child class of
+		// ExpressionCollector).
 		ExpressionCollector ec3 = new ConjoinAll();
 		assertEquals(0, ec3.getExpressions().length);
 
@@ -217,9 +224,11 @@ public class TestExpressions {
 
 	@Test
 	public void test10() {
-		// Build the expression which takes the disjunction of an empty collection of boolean expressions.
+		// Build the expression which takes the disjunction of an empty collection of
+		// boolean expressions.
 		// Here the static type of `ec4` is ExpressionCollector,
-		// and the dynamic type is DisjoinALl (which should be a child class of ExpressionCollector).
+		// and the dynamic type is DisjoinALl (which should be a child class of
+		// ExpressionCollector).
 		ExpressionCollector ec4 = new DisjoinAll();
 		assertEquals(0, ec4.getExpressions().length);
 
@@ -238,10 +247,10 @@ public class TestExpressions {
 
 	@Test
 	public void test11() {
-		ExpressionCollector ec1 = new AddAll(); 
-		ExpressionCollector ec2 = new TimesAll(); 
-		ExpressionCollector ec3 = new ConjoinAll(); 
-		ExpressionCollector ec4 = new DisjoinAll(); 
+		ExpressionCollector ec1 = new AddAll();
+		ExpressionCollector ec2 = new TimesAll();
+		ExpressionCollector ec3 = new ConjoinAll();
+		ExpressionCollector ec4 = new DisjoinAll();
 
 		// Two expression collections are equal if there are the same type and
 		// evaluations of their lists of expressions return the same value.
@@ -252,14 +261,12 @@ public class TestExpressions {
 	}
 
 	/*
-	 * Section 4.1
-	 * Tests for testing non-empty complex integer expressions: 
-	 * AddAll
+	 * Section 4.1 Tests for testing non-empty complex integer expressions: AddAll
 	 */
 
 	@Test
 	public void test12() {
-		ExpressionCollector ec1 = new AddAll(); 
+		ExpressionCollector ec1 = new AddAll();
 		Expression add = new Addition(3, 2);
 		Expression sub = new Subtraction(3, 2);
 		Expression mul = new Multiplication(3, 2);
@@ -272,10 +279,10 @@ public class TestExpressions {
 		Expression[] ec1Expressions = ec1.getExpressions();
 		assertEquals(3, ec1Expressions.length);
 
-		// It is type correct because all stored expressions are integer expressions. 
+		// It is type correct because all stored expressions are integer expressions.
 		assertTrue(ec1.isTypeCorrect());
 
-		// Return the evaluation results as an integer. 
+		// Return the evaluation results as an integer.
 		ec1.evaluate();
 		Integer ec1V = (Integer) ec1.getValue();
 		assertEquals(new Integer(12), ec1V);
@@ -287,8 +294,8 @@ public class TestExpressions {
 	}
 
 	@Test
-	public void test13() { 
-		ExpressionCollector ec2 = new AddAll(); 
+	public void test13() {
+		ExpressionCollector ec2 = new AddAll();
 		// Build the expression: (0 + 1) + (7 - 5) + (-4 + 7) + (3 * 4) + (3 - 9)
 		ec2.addExpression(0, "+", 1);
 		ec2.addExpression(7, "-", 5);
@@ -303,8 +310,8 @@ public class TestExpressions {
 	}
 
 	@Test
-	public void test14_a() { 
-		ExpressionCollector ec1 = new AddAll(); 
+	public void test14_a() {
+		ExpressionCollector ec1 = new AddAll();
 		// Build the expression: (3 + 2) + (3 - 2) + (3 * 2)
 		Expression add = new Addition(3, 2);
 		Expression sub = new Subtraction(3, 2);
@@ -314,7 +321,7 @@ public class TestExpressions {
 		ec1.addExpression(mul);
 
 		// Build the expression: (0 + 1) + (7 - 5) + (-4 + 7) + (3 * 4) + (3 - 9)
-		ExpressionCollector ec2 = new AddAll(); 
+		ExpressionCollector ec2 = new AddAll();
 		ec2.addExpression(0, "+", 1);
 		ec2.addExpression(7, "-", 5);
 		ec2.addExpression(-4, "+", 7);
@@ -326,8 +333,8 @@ public class TestExpressions {
 	}
 
 	@Test
-	public void test14_b() { 
-		ExpressionCollector ec1 = new AddAll(); 
+	public void test14_b() {
+		ExpressionCollector ec1 = new AddAll();
 		// Build the expression: (3 + 2) + (3 - 2) + (3 * 2)
 		Expression add = new Addition(3, 2);
 		Expression sub = new Subtraction(3, 2);
@@ -340,7 +347,7 @@ public class TestExpressions {
 		assertEquals(new Integer(12), ec1V);
 
 		// Build the expression: (0 + 1) + (7 - 5) + (-4 + 7) + (3 * 4)
-		ExpressionCollector ec2 = new AddAll(); 
+		ExpressionCollector ec2 = new AddAll();
 		ec2.addExpression(0, "+", 1);
 		ec2.addExpression(7, "-", 5);
 		ec2.addExpression(-4, "+", 7);
@@ -349,19 +356,18 @@ public class TestExpressions {
 		Integer ec2V = (Integer) ec2.getValue();
 		assertEquals(new Integer(18), ec2V);
 
-		// They are not equal because their stored expressions evaluate to different values.
+		// They are not equal because their stored expressions evaluate to different
+		// values.
 		assertFalse(ec1.equals(ec2));
 	}
 
 	/*
-	 * Section 4.2
-	 * Tests for testing non-empty complex integer expressions: 
-	 * TimesAll
+	 * Section 4.2 Tests for testing non-empty complex integer expressions: TimesAll
 	 */
 
 	@Test
 	public void test15() {
-		ExpressionCollector ec1 = new TimesAll(); 
+		ExpressionCollector ec1 = new TimesAll();
 		Expression add = new Addition(3, 2);
 		Expression sub = new Subtraction(7, 3);
 		Expression mul = new Multiplication(3, 2);
@@ -374,10 +380,10 @@ public class TestExpressions {
 		Expression[] ec1Expressions = ec1.getExpressions();
 		assertEquals(3, ec1Expressions.length);
 
-		// It is type correct because all stored expressions are integer expressions. 
+		// It is type correct because all stored expressions are integer expressions.
 		assertTrue(ec1.isTypeCorrect());
 
-		// Return the evaluation results as an integer. 
+		// Return the evaluation results as an integer.
 		ec1.evaluate();
 		Integer ec1V = (Integer) ec1.getValue();
 		assertEquals(new Integer(120), ec1V);
@@ -389,8 +395,8 @@ public class TestExpressions {
 	}
 
 	@Test
-	public void test16() { 
-		ExpressionCollector ec2 = new TimesAll(); 
+	public void test16() {
+		ExpressionCollector ec2 = new TimesAll();
 		// Build the expression: (3 * 2) * (4 - 5) * (9 - 7) * (-1 + 6) * (5 - 7)
 		ec2.addExpression(3, "*", 2);
 		ec2.addExpression(4, "-", 5);
@@ -405,8 +411,8 @@ public class TestExpressions {
 	}
 
 	@Test
-	public void test17_a() { 
-		ExpressionCollector ec1 = new TimesAll(); 
+	public void test17_a() {
+		ExpressionCollector ec1 = new TimesAll();
 		// Build the expression: (3 + 2) * (7 - 3) * (3 * 2)
 		Expression add = new Addition(3, 2);
 		Expression sub = new Subtraction(7, 3);
@@ -415,7 +421,7 @@ public class TestExpressions {
 		ec1.addExpression(sub);
 		ec1.addExpression(mul);
 
-		ExpressionCollector ec2 = new TimesAll(); 
+		ExpressionCollector ec2 = new TimesAll();
 		// Build the expression: (3 * 2) * (4 - 5) * (9 - 7) * (-1 + 6) * (5 - 7)
 		ec2.addExpression(3, "*", 2);
 		ec2.addExpression(4, "-", 5);
@@ -428,8 +434,8 @@ public class TestExpressions {
 	}
 
 	@Test
-	public void test17_b() { 
-		ExpressionCollector ec1 = new TimesAll(); 
+	public void test17_b() {
+		ExpressionCollector ec1 = new TimesAll();
 		// Build the expression: (3 + 2) * (7 - 3) * (3 * 2)
 		Expression add = new Addition(3, 2);
 		Expression sub = new Subtraction(7, 3);
@@ -441,7 +447,7 @@ public class TestExpressions {
 		Integer ec1V = (Integer) ec1.getValue();
 		assertEquals(new Integer(120), ec1V);
 
-		ExpressionCollector ec2 = new TimesAll(); 
+		ExpressionCollector ec2 = new TimesAll();
 		// Build the expression: (3 * 2) * (4 - 5) * (9 - 7) * (-1 + 6)
 		ec2.addExpression(3, "*", 2);
 		ec2.addExpression(4, "-", 5);
@@ -451,19 +457,19 @@ public class TestExpressions {
 		Integer ec2V = (Integer) ec2.getValue();
 		assertEquals(new Integer(-60), ec2V);
 
-		// They are not equal because their stored expressions evaluate to different values.
+		// They are not equal because their stored expressions evaluate to different
+		// values.
 		assertFalse(ec1.equals(ec2));
 	}
 
 	/*
-	 * Section 4.3
-	 * Tests for testing non-empty complex integer expressions: 
+	 * Section 4.3 Tests for testing non-empty complex integer expressions:
 	 * ConjoinAll
 	 */
 
 	@Test
 	public void test18() {
-		ExpressionCollector ec1 = new ConjoinAll(); 
+		ExpressionCollector ec1 = new ConjoinAll();
 		Expression eq = new Equal(3, 3);
 		Expression gt = new GreaterThan(7, 3);
 		Expression lt = new LessThan(7, 3);
@@ -476,10 +482,10 @@ public class TestExpressions {
 		Expression[] ec1Expressions = ec1.getExpressions();
 		assertEquals(3, ec1Expressions.length);
 
-		// It is type correct because all stored expressions are boolean expressions. 
+		// It is type correct because all stored expressions are boolean expressions.
 		assertTrue(ec1.isTypeCorrect());
 
-		// Return the evaluation results as a boolean. 
+		// Return the evaluation results as a boolean.
 		ec1.evaluate();
 		Boolean ec1V = (Boolean) ec1.getValue();
 		assertFalse(ec1V);
@@ -491,8 +497,8 @@ public class TestExpressions {
 	}
 
 	@Test
-	public void test19() { 
-		ExpressionCollector ec2 = new ConjoinAll(); 
+	public void test19() {
+		ExpressionCollector ec2 = new ConjoinAll();
 		// Build the expression: (3 > 2) && (4 < 5) && (9 = 9) && (-1 < 6) && (5 > 7)
 		ec2.addExpression(3, ">", 2);
 		ec2.addExpression(4, "<", 5);
@@ -507,17 +513,17 @@ public class TestExpressions {
 	}
 
 	@Test
-	public void test20_a() { 
-		ExpressionCollector ec1 = new ConjoinAll(); 
+	public void test20_a() {
+		ExpressionCollector ec1 = new ConjoinAll();
 		Expression eq = new Equal(3, 3);
 		Expression gt = new GreaterThan(7, 3);
-		Expression lt = new LessThan(7, 3); 
+		Expression lt = new LessThan(7, 3);
 		// Build the expression: (3 == 3) && (7 > 3) && (7 < 3)
 		ec1.addExpression(eq);
 		ec1.addExpression(gt);
 		ec1.addExpression(lt);
 
-		ExpressionCollector ec2 = new ConjoinAll(); 
+		ExpressionCollector ec2 = new ConjoinAll();
 		// Build the expression: (3 > 2) && (4 < 5) && (9 = 9) && (-1 < 6) && (5 > 7)
 		ec2.addExpression(3, ">", 2);
 		ec2.addExpression(4, "<", 5);
@@ -530,11 +536,11 @@ public class TestExpressions {
 	}
 
 	@Test
-	public void test20_b() { 
-		ExpressionCollector ec1 = new ConjoinAll(); 
+	public void test20_b() {
+		ExpressionCollector ec1 = new ConjoinAll();
 		Expression eq = new Equal(3, 3);
 		Expression gt = new GreaterThan(7, 3);
-		Expression lt = new LessThan(7, 3); 
+		Expression lt = new LessThan(7, 3);
 		// Build the expression: (3 == 3) && (7 > 3) && (7 < 3)
 		ec1.addExpression(eq);
 		ec1.addExpression(gt);
@@ -543,7 +549,7 @@ public class TestExpressions {
 		Boolean ec1V = (Boolean) ec1.getValue();
 		assertEquals(new Boolean(false), ec1V);
 
-		ExpressionCollector ec2 = new ConjoinAll(); 
+		ExpressionCollector ec2 = new ConjoinAll();
 		// Build the expression: (3 > 2) && (4 < 5) && (9 = 9) && (-1 < 6)
 		ec2.addExpression(3, ">", 2);
 		ec2.addExpression(4, "<", 5);
@@ -553,19 +559,19 @@ public class TestExpressions {
 		Boolean ec2V = (Boolean) ec2.getValue();
 		assertEquals(new Boolean(true), ec2V);
 
-		// They are not equal because their stored expressions evaluate to different values.
+		// They are not equal because their stored expressions evaluate to different
+		// values.
 		assertFalse(ec1.equals(ec2));
 	}
 
 	/*
-	 * Section 4.4
-	 * Tests for testing non-empty complex integer expressions: 
+	 * Section 4.4 Tests for testing non-empty complex integer expressions:
 	 * DisjoinAll
 	 */
 
 	@Test
 	public void test21() {
-		ExpressionCollector ec1 = new DisjoinAll(); 
+		ExpressionCollector ec1 = new DisjoinAll();
 		Expression eq = new Equal(3, 3);
 		Expression gt = new GreaterThan(7, 3);
 		Expression lt = new LessThan(3, 7);
@@ -578,10 +584,10 @@ public class TestExpressions {
 		Expression[] ec1Expressions = ec1.getExpressions();
 		assertEquals(3, ec1Expressions.length);
 
-		// It is type correct because all stored expressions are boolean expressions. 
+		// It is type correct because all stored expressions are boolean expressions.
 		assertTrue(ec1.isTypeCorrect());
 
-		// Return the evaluation results as a boolean. 
+		// Return the evaluation results as a boolean.
 		ec1.evaluate();
 		Boolean ec1V = (Boolean) ec1.getValue();
 		assertTrue(ec1V);
@@ -593,8 +599,8 @@ public class TestExpressions {
 	}
 
 	@Test
-	public void test22() { 
-		ExpressionCollector ec2 = new DisjoinAll(); 
+	public void test22() {
+		ExpressionCollector ec2 = new DisjoinAll();
 		// Build the expression: (3 > 2) || (4 < 5) || (9 = 9) || (-1 < 6) || (7 > 5)
 		ec2.addExpression(3, ">", 2);
 		ec2.addExpression(4, "<", 5);
@@ -609,17 +615,17 @@ public class TestExpressions {
 	}
 
 	@Test
-	public void test23_a() { 
-		ExpressionCollector ec1 = new DisjoinAll(); 
+	public void test23_a() {
+		ExpressionCollector ec1 = new DisjoinAll();
 		Expression eq = new Equal(3, 3);
 		Expression gt = new GreaterThan(7, 3);
-		Expression lt = new LessThan(3, 7); 
+		Expression lt = new LessThan(3, 7);
 		// Build the expression: (3 == 3) || (7 > 3) || (3 < 7)
 		ec1.addExpression(eq);
 		ec1.addExpression(gt);
 		ec1.addExpression(lt);
 
-		ExpressionCollector ec2 = new DisjoinAll(); 
+		ExpressionCollector ec2 = new DisjoinAll();
 		// Build the expression: (3 > 2) || (4 < 5) || (9 = 9) || (-1 < 6) || (7 > 5)
 		ec2.addExpression(3, ">", 2);
 		ec2.addExpression(4, "<", 5);
@@ -632,11 +638,11 @@ public class TestExpressions {
 	}
 
 	@Test
-	public void test23_b() { 
-		ExpressionCollector ec1 = new DisjoinAll(); 
+	public void test23_b() {
+		ExpressionCollector ec1 = new DisjoinAll();
 		Expression eq = new Equal(3, 3);
 		Expression gt = new GreaterThan(7, 3);
-		Expression lt = new LessThan(3, 7); 
+		Expression lt = new LessThan(3, 7);
 		// Build the expression: (3 == 3) || (7 > 3) || (3 < 7)
 		ec1.addExpression(eq);
 		ec1.addExpression(gt);
@@ -645,12 +651,12 @@ public class TestExpressions {
 		Boolean ec1V = (Boolean) ec1.getValue();
 		assertEquals(new Boolean(true), ec1V);
 
-		ExpressionCollector ec2 = new DisjoinAll(); 
+		ExpressionCollector ec2 = new DisjoinAll();
 		// Build the expression: (2 > 3) || (5 < 4) || (9 = 6) || (6 < -1)
 		ec2.addExpression(2, ">", 3);
 		ec2.addExpression(5, "<", 4);
 		ec2.addExpression(9, "==", 6);
-		ec2.addExpression(6, "<", -1); 
+		ec2.addExpression(6, "<", -1);
 		ec2.evaluate();
 		Boolean ec2V = (Boolean) ec2.getValue();
 		assertEquals(new Boolean(false), ec2V);
@@ -660,13 +666,12 @@ public class TestExpressions {
 	}
 
 	/*
-	 * Section 5
-	 * Checking type correctness for complex integer/boolean expressions.
+	 * Section 5 Checking type correctness for complex integer/boolean expressions.
 	 */
 
 	@Test
-	public void test24() { 
-		ExpressionCollector ec1 = new AddAll(); 
+	public void test24() {
+		ExpressionCollector ec1 = new AddAll();
 		// Build the expression: (3 + 2) + (3 - 2) + (5 > 7) + (3 * 2)
 		Expression add = new Addition(3, 2);
 		Expression sub = new Subtraction(3, 2);
@@ -677,11 +682,13 @@ public class TestExpressions {
 		ec1.addExpression(gt);
 		ec1.addExpression(mul);
 
-		// It is not type correct because not all stored expressions are integer expressions.
+		// It is not type correct because not all stored expressions are integer
+		// expressions.
 		assertFalse(ec1.isTypeCorrect());
 
-		// Build the expression: (0 + 1) + (7 - 5) + (-4 + 7) + (7 < 5) + (3 * 4) + (3 - 9)
-		ExpressionCollector ec2 = new AddAll(); 
+		// Build the expression: (0 + 1) + (7 - 5) + (-4 + 7) + (7 < 5) + (3 * 4) + (3 -
+		// 9)
+		ExpressionCollector ec2 = new AddAll();
 		ec2.addExpression(0, "+", 1);
 		ec2.addExpression(7, "-", 5);
 		ec2.addExpression(-4, "+", 7);
@@ -689,13 +696,14 @@ public class TestExpressions {
 		ec2.addExpression(3, "*", 4);
 		ec2.addExpression(3, "-", 9);
 
-		// It is not type correct because not all stored expressions are integer expressions.
+		// It is not type correct because not all stored expressions are integer
+		// expressions.
 		assertFalse(ec2.isTypeCorrect());
 	}
 
 	@Test
-	public void test25() { 
-		ExpressionCollector ec1 = new TimesAll(); 
+	public void test25() {
+		ExpressionCollector ec1 = new TimesAll();
 		// Build the expression: (3 + 2) * (7 - 3) * (5 > 7) * (3 * 2)
 		Expression add = new Addition(3, 2);
 		Expression sub = new Subtraction(7, 3);
@@ -706,40 +714,45 @@ public class TestExpressions {
 		ec1.addExpression(gt);
 		ec1.addExpression(mul);
 
-		// It is not type correct because not all stored expressions are integer expressions.
+		// It is not type correct because not all stored expressions are integer
+		// expressions.
 		assertFalse(ec1.isTypeCorrect());
 
-		ExpressionCollector ec2 = new TimesAll(); 
-		// Build the expression: (3 * 2) * (4 - 5) * (9 - 7) * (7 < 5) * (-1 + 6) * (5 - 7)
+		ExpressionCollector ec2 = new TimesAll();
+		// Build the expression: (3 * 2) * (4 - 5) * (9 - 7) * (7 < 5) * (-1 + 6) * (5 -
+		// 7)
 		ec2.addExpression(3, "*", 2);
 		ec2.addExpression(4, "-", 5);
 		ec2.addExpression(9, "-", 7);
 		ec2.addExpression(7, "<", 5);
 		ec2.addExpression(-1, "+", 6);
-		ec2.addExpression(5, "-", 7); 
+		ec2.addExpression(5, "-", 7);
 
-		// It is not type correct because not all stored expressions are integer expressions.
+		// It is not type correct because not all stored expressions are integer
+		// expressions.
 		assertFalse(ec2.isTypeCorrect());
 	}
 
 	@Test
-	public void test26() { 
-		ExpressionCollector ec1 = new ConjoinAll(); 
+	public void test26() {
+		ExpressionCollector ec1 = new ConjoinAll();
 		Expression eq = new Equal(3, 3);
 		Expression gt = new GreaterThan(7, 3);
 		Expression sub = new Subtraction(9, 3);
-		Expression lt = new LessThan(7, 3); 
+		Expression lt = new LessThan(7, 3);
 		// Build the expression: (3 == 3) && (7 > 3) && (9 - 3) && (7 < 3)
 		ec1.addExpression(eq);
 		ec1.addExpression(gt);
 		ec1.addExpression(sub);
 		ec1.addExpression(lt);
 
-		// It is not type correct because not all stored expressions are boolean expressions.
+		// It is not type correct because not all stored expressions are boolean
+		// expressions.
 		assertFalse(ec1.isTypeCorrect());
 
-		ExpressionCollector ec2 = new ConjoinAll(); 
-		// Build the expression: (3 > 2) && (4 < 5) && (9 = 9) && (3 * 9) && (-1 < 6) && (5 > 7)
+		ExpressionCollector ec2 = new ConjoinAll();
+		// Build the expression: (3 > 2) && (4 < 5) && (9 = 9) && (3 * 9) && (-1 < 6) &&
+		// (5 > 7)
 		ec2.addExpression(3, ">", 2);
 		ec2.addExpression(4, "<", 5);
 		ec2.addExpression(9, "==", 9);
@@ -747,28 +760,31 @@ public class TestExpressions {
 		ec2.addExpression(-1, "<", 6);
 		ec2.addExpression(5, ">", 7);
 
-		// It is not type correct because not all stored expressions are boolean expressions.
+		// It is not type correct because not all stored expressions are boolean
+		// expressions.
 		assertFalse(ec2.isTypeCorrect());
 	}
 
 	@Test
-	public void test27() { 
-		ExpressionCollector ec1 = new DisjoinAll(); 
+	public void test27() {
+		ExpressionCollector ec1 = new DisjoinAll();
 		Expression eq = new Equal(3, 3);
 		Expression gt = new GreaterThan(7, 3);
 		Expression add = new Subtraction(9, 3);
-		Expression lt = new LessThan(3, 7); 
+		Expression lt = new LessThan(3, 7);
 		// Build the expression: (3 == 3) || (7 > 3) || (9 + 3) || (3 < 7)
 		ec1.addExpression(eq);
 		ec1.addExpression(gt);
 		ec1.addExpression(add);
 		ec1.addExpression(lt);
 
-		// It is not type correct because not all stored expressions are boolean expressions.
+		// It is not type correct because not all stored expressions are boolean
+		// expressions.
 		assertFalse(ec1.isTypeCorrect());
 
-		ExpressionCollector ec2 = new DisjoinAll(); 
-		// Build the expression: (3 > 2) || (4 < 5) || (9 = 9) || (3 * 9) || (-1 < 6) || (7 > 5)
+		ExpressionCollector ec2 = new DisjoinAll();
+		// Build the expression: (3 > 2) || (4 < 5) || (9 = 9) || (3 * 9) || (-1 < 6) ||
+		// (7 > 5)
 		ec2.addExpression(3, ">", 2);
 		ec2.addExpression(4, "<", 5);
 		ec2.addExpression(9, "==", 9);
@@ -776,7 +792,8 @@ public class TestExpressions {
 		ec2.addExpression(-1, "<", 6);
 		ec2.addExpression(7, ">", 5);
 
-		// It is not type correct because not all stored expressions are boolean expressions.
+		// It is not type correct because not all stored expressions are boolean
+		// expressions.
 		assertFalse(ec2.isTypeCorrect());
 	}
 }

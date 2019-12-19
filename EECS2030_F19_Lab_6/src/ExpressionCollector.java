@@ -167,6 +167,6 @@ public class ExpressionCollector {
 			return true;
 		}
 
-			return false;
+		return false;
 	}
 }
