@@ -1,13 +1,6 @@
 #include <stdio.h>
 #include<string.h>
 
-/***************************************
-* EECS2031B – Lab2 *
-* Author: Manoharan, Krishaanth *
-* Email: krish100@my.yorku.ca *
-* eecs_username: krish100 *
-* York Student #: 216463150
-****************************************/
 
 #define SIZE 10 //on pdf its 20
 
