@@ -15,4 +15,4 @@
            - ArrayList vs HashTable
            - Solving problems recursively (Though I still have a bit of a hard time reading someone elses recursive code)
                 - But I can make my own basics ones to solve basic* problems like merging 2 sorted arrays using recursion
-           - sdsd
+           - ***
