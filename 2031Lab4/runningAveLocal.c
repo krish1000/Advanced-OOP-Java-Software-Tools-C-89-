@@ -1,9 +1,5 @@
 /***************************************
-* EECS2031B – Lab4 *
-* Author: Manoharan, Krishaanth *
-* Email: krish100@my.yorku.ca *
-* eecs_username: krish100 *
-* York Student #: 216463150
+* EECS2031B â€“ Lab4 *
 ****************************************/
 #include <stdio.h>
 
