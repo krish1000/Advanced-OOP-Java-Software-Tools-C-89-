@@ -1,10 +1,4 @@
-/***************************************
-* EECS2031B – Lab 5 *
-* Author: Krishaanth, Manoharan*
-* Email: krish100@my.yorku.ca *
-* eecs_num: krish100 *
-* Yorku #: 216463150
-****************************************/
+
 
 #include <stdio.h>
 
