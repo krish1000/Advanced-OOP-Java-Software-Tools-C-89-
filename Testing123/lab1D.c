@@ -1,10 +1,7 @@
 #include <stdio.h>
 /***************************************
 * EECS2031B – Lab1 *
-* Author: Manoharan, Krishaanth *
-* Email: krish100@my.yorku.ca *
-* eecs_username: krish100 *
-* York Student #: 216463150
+* Au
 ****************************************/
 
 float sum(float i, float j); // declaring sum method

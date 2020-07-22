@@ -2,7 +2,7 @@
  * lab1Br.c
  *
  *  Created on: Oct. 8, 2019
- *      Author: krish
+ *     
  */
 #include <stdlib.h>
 #include <stdio.h>

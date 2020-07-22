@@ -2,7 +2,7 @@
  * lab3convr.c
  *
  *  Created on: Oct. 9, 2019
- *      Author: krish
+ *      
  */
 
 #include <stdio.h>

@@ -2,7 +2,7 @@
  * lab3leapr.c
  *
  *  Created on: Oct. 9, 2019
- *      Author: krish
+ *      As
  */
 
 #include <stdlib.h>
